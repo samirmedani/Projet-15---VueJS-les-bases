@@ -37,12 +37,16 @@
             </div>
 
             <h1 class="display-4" v-if="commandes.length > 0">Produits commandés</h1>
-            <ul>
-                <li v-for="commande in commandes">{{commande}}</li>
-            </ul>
-
-            <h1 class="display-4">Produits disponibles</h1>
             <div class="row">
+                <fiche-produit v-for="commande in commandes" v-bind:nom="commande" role="recap"></fiche-produit>
+            </div>
+
+            <h1 v-bind:class="affichage">Produits disponibles</h1>
+            <div class="row">
+                <fiche-produit v-for="produit in produits" v-bind:nom="produit" v-on:commande-passee="commander" role="commande"></fiche-produit>
+
+
+
                 <div class="col-3" v-for="produit in produits">
                     <p class="jumbptron">
                         {{produit}}<br>
@@ -54,12 +58,32 @@
 
     </div>
     <script>
+
+        Vue.component('fiche-produit',{
+            template: `
+            <div class="col-3"> 
+                <p class="jumbotron"> {{ nom }}<br>
+                    <button v-on:click="passer_commande(nom)" v-if="role == 'command'">Commander !</button>
+                </p>
+            </div>
+            `,
+            props: ['nom', 'role'],
+            methods: {
+                passer_commande: function(produit){
+                    this.$emit('commande_passee', produit)
+                }
+            }
+        })
+
+
+
         var app = new Vue({
             el: "#app",
             data: {
                user: "Samir",
                produits: ["Pizza", "Hamburger", "Cheeseburger", "Tacos"],
-               commandes: []
+               commandes: [], 
+               affichage: "display-8"
             },
 
             methods:{

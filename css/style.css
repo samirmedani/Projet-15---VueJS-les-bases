@@ -1,3 +1,4 @@
-body {
+div#app div.container div {
   background-color: gray;
+  border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
