@@ -7,6 +7,8 @@ Résultat, vous l'avez sous les yeux (nous ne sommes pas là pour juger la déco
 Conclusion: Vue c'est puissant, je n'ai pas eu trop de mal à maitriser le début du tutoriel, sur la fin j'étais largé mais ça fonctionne, avec quelque erreur néanmoins.
 
 
+ps: comme je suivais le code pas à pas j'ai eu ma 1er expérience Boostrap
+
 
 
 
